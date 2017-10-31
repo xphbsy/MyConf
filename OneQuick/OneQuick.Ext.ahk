@@ -14,17 +14,17 @@ class User_LENOVO_PC
 ; GroupAdd, Editor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
 ; GroupAdd, Editor, ahk_class SWT_Window0  ;Eclipse
 
-; ;函数
-; ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
-; sendbyclip(var_string)
-; {
-;     ClipboardOld = %ClipboardAll%
-;     Clipboard =%var_string%
-;     sleep 100
-;     send ^v
-;     sleep 100
-;     Clipboard = %ClipboardOld%  ; Restore previous contents of clipboard.
-; }
+;函数
+;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
+sendbyclip(var_string)
+{
+    ClipboardOld = %ClipboardAll%
+    Clipboard =%var_string%
+    sleep 100
+    send ^v
+    sleep 100
+    Clipboard = %ClipboardOld%  ; Restore previous contents of clipboard.
+}
 
 ; ;在所有编辑器中自动转换
 ; #IfWinActive,ahk_group Editor
@@ -110,6 +110,13 @@ Return
 ; 显示Listary
 LAlt & LWin::
 Send #;
+Return
+
+; 用Listary在百度百科搜索指定词条
+#^;::
+Send #;
+sendbyclip("b")
+Send, {Space}
 Return
 
 ; 用Listary打开选中文件（全局）
