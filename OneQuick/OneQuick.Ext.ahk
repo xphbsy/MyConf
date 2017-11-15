@@ -529,21 +529,29 @@ SetKeyDelay, 10, 10
 ControlSend, ahk_parent, ^+2, ahk_class PX_WINDOW_CLASS
 return
 
+; 打开Key Bindings并最大化
 #k::
 Send !nk
 Sleep 700
 Send #{up}
 return
 
+; 打开Settings并最大化
 #s::
 Send !ns{Enter}
 Sleep 700
 Send #{up}
 return
 
+; 新建窗口并最大化
 ~^+n::
 Sleep 500
 Send #{up}
+return
+
+#v::
+Send ^f
+Send ^v
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -777,6 +785,7 @@ Send ^v
 return
 
 :*b0:(::){left 1}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<为知笔记结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<资源管理器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class CabinetWClass
 ;!q::Send {Alt Down}{F4}{Alt Up}    ;退出
