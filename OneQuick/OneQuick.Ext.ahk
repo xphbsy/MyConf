@@ -387,6 +387,13 @@ Sleep 200
 Send {Esc}
 return
 
+;一键加速
+!.::
+Send {Click 1086, 716}
+Sleep 200
+Send {Click 684, 244}
+return
+
 ; 搜索框
 #IfWinActive ahk_class Chrome_WidgetWin_2
 F10::Run http://www.baidu.com
