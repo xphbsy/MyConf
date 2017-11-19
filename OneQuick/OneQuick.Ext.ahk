@@ -684,6 +684,14 @@ SetKeyDelay, 10, 10
 ControlSend, , ^{Space}, ahk_exe idea.exe
 return
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_class Xshell::MainFrame_0
+!j::Send {down}
+!k::Send {up}
+!h::Send {left}
+!l::Send {right}
+!y::Send {Home}
+!o::Send {End}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent
