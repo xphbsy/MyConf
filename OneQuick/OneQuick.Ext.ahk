@@ -313,34 +313,20 @@ return
 Send, mc
 return
 
-!+s::    ;添加博客园网摘复制
-Send yy
-Sleep 100
-Send ^c
-Send ^{PgDn}
-Send gi
-return
-
-!+z::    ;添加博客园网摘粘贴
-Sleep 100
-Send ^!2
-Sleep 500
-Send {Tab}
-Sleep 100
-Send ^!1
-return
-
-!+a::    ;添加博客园网摘复制粘贴
+;添加博客园网摘，要先选中标题
+!+z::
 Send yy
 Sleep 200
 Send ^c
 Sleep 200
-Send ^{PgDn}
+Run http://wz.cnblogs.com/create
+Sleep 1500
 Send gi
 Send ^!2
 Sleep 500
 Send {Tab}
 Send ^!1
+Send {Click 327, 276}
 return
 
 ;爱奇艺关闭广告
@@ -843,7 +829,7 @@ return
 Sleep 200
 Send {Click 507, 441}
 return
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<资源管理器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Listary>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Listary.exe
 ^n::Send ^j
