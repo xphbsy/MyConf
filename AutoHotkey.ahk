@@ -2,6 +2,10 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+; 因任务计划程序无法创建任务计划，通过此方法重启OneQuick
+Sleep, 10000
+Run, D:\任务计划备份\发送重启OneQuick快捷键.vbs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;编辑器分组
 GroupAdd, Editor, ahk_class Notepad  ;记事本
