@@ -114,6 +114,7 @@ Return
 
 ; 用Listary在百度百科搜索指定词条
 #^;::
+#j::
 Send #;
 sendbyclip("b")
 Send, {Space}
@@ -204,7 +205,7 @@ return
 /*
 自己加的
 */
-#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
+#!j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
 #!b::run C:\Users\鹏\AppData\Roaming\baidu\BaiduYunGuanjia\baidunetdisk.exe ;启动百度网盘
 #!c::run *RunAs D:\Program Files\Microsoft VS Code\Code.exe ;启动Visual Studio Code
 RAlt & Home::run D:\软件\AutoHotkey\脚本\SublimeBrightness.ahk ;启动自动亮度调节
@@ -251,6 +252,11 @@ return
 Send ^c
 Send ^f
 Sleep, 200
+Send ^v
+return
+
+#v::
+Send ^f
 Send ^v
 return
 
