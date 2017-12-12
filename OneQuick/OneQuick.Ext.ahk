@@ -151,7 +151,7 @@ Sleep 100
 Send ^!x
 Sleep 500
 Send ^v
-Sleep 500
+Sleep 200
 Send {Enter}
 return
 
@@ -470,12 +470,12 @@ return
 Send ^c
 Sleep 100
 Send ^o
-Sleep 500
+Sleep 1000
 ; Send {LWin Down}{Ctrl down}o{Ctrl up}{LWin Up}
 Send {Ctrl down}{Ctrl up}
 Sleep 100
 Send {Ctrl down}{Ctrl up}
-Sleep 100
+Sleep 750
 Send ^v
 return
 
