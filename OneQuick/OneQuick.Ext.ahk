@@ -564,6 +564,12 @@ Send {Home}
 Send +{End}
 Send ^c
 return
+
+;选择一行
+!a::
+Send {Home 2}
+Send +{End 2}
+return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Visual Studio Code>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Code.exe
