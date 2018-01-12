@@ -151,7 +151,7 @@ Sleep 100
 Send ^!x
 Sleep 500
 Send ^v
-Sleep 200
+Sleep 400
 Send {Enter}
 return
 
@@ -560,8 +560,8 @@ Return
 
 ;复制整行（不含换行符）
 !c::
-Send {Home}
-Send +{End}
+Send {Home 2}
+Send +{End 2}
 Send ^c
 return
 
@@ -1092,4 +1092,26 @@ return
 ^!0::
 ControlSend, Photos_PhotoCanvas1, ^!0, ahk_class Photo_Lightweight_Viewer
 return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Ditto>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_class QPasteClass
+!j::
+^j::
+Send {down}
+return
+
+!k::
+^k::
+Send {up}
+return
+
+!h::
+^h::
+Send {left}
+return
+
+!l::
+^l::
+Send {right}
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Ditto结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;应用程序各自的映射结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
