@@ -823,6 +823,10 @@ Return
 Send {up}
 Return
 
+!h::Send {left}
+!l::Send {right}
+Return
+
 ^h::
 Send !{Left}
 Return
