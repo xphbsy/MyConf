@@ -570,6 +570,26 @@ return
 Send {Home 2}
 Send +{End 2}
 return
+
+; 自动匹配中文单引号
+~'::
+state := IME_GET()
+If (state="1") ;此时为中文
+{
+    Send, '
+    Send, {Left}
+}
+return
+
+; 自动匹配中文双引号
+~"::
+state := IME_GET()
+If (state="1") ;此时为中文
+{
+    Send, "
+    Send, {Left}
+}
+return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Visual Studio Code>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Code.exe
