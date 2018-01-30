@@ -588,6 +588,26 @@ If (state="1") ;此时为中文
 {
     Send, "
     Send, {Left}
+    state := IME_GET()
+    If (state="0") ;此时为英文
+    {
+        Send {Shift}
+    }
+}
+return
+
+; 自动匹配中文括号
+~(::
+state := IME_GET()
+If (state="1") ;此时为中文
+{
+    Send, )
+    Send, {Left}
+    state := IME_GET()
+    If (state="0") ;此时为英文
+    {
+        Send {Shift}
+    }
 }
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -828,7 +848,19 @@ Send ^f
 Send ^v
 return
 
+; 自动匹配中英文单引号
+:*b0:'::'{left 1}
+Return
+
+; 自动匹配中英文双引号
+:*b0:"::
+Send, "
+Send, {Left}
+Return
+
+; 自动匹配中英文括号
 :*b0:(::){left 1}
+Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<为知笔记结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<资源管理器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class CabinetWClass
