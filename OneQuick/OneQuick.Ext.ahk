@@ -156,8 +156,8 @@ Send {Enter}
 return
 
 ; 打开有道词典
-#q::Send {F8}
-Return
+; #q::Send {F8}
+; Return
 
 ;快速关闭番茄钟通知
 #c::
@@ -366,11 +366,17 @@ Send {Esc}
 return
 
 ;快速关闭闹表
-!^z::
+^+z::
 Send {Click 832, 450}
 Sleep 200
 Send {Esc}
 return
+
+; 将光标移动到“停止”按钮
+!^z::
+Send, !d
+Send, {Tab 13}
+Return
 
 ;一键加速
 !.::
@@ -488,6 +494,11 @@ Sleep 100
 Send {Ctrl down}{Ctrl up}
 return
 
+; 跳到指定字符左边
+^l::
+Send ^+'
+return
+
 ; 跳到指定字符右边
 ^;::
 Send !.
@@ -556,6 +567,11 @@ return
 ![::
 sendbyclip("【自注：】")
 Send, {Left}
+Return
+
+^![::
+sendbyclip("【自注（参考《》的）：】")
+Send, {Left 5}
 Return
 
 ;复制整行（不含换行符）
@@ -887,6 +903,16 @@ Send {Home}
 Send +{End}
 Send ^c
 return
+
+![::
+sendbyclip("【自注：】")
+Send, {Left}
+Return
+
+^![::
+sendbyclip("【自注（参考《》的）：】")
+Send, {Left 5}
+Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<为知笔记结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<资源管理器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class CabinetWClass
