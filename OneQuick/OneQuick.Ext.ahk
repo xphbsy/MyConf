@@ -109,13 +109,15 @@ Return
 
 ; 显示Listary
 LAlt & LWin::
-Send #;
+; Send #;
+Send #n
 Return
 
 ; 用Listary在百度百科搜索指定词条
 #^;::
 #j::
-Send #;
+; Send #;
+Send #n
 sendbyclip("b")
 Send, {Space}
 Return
@@ -325,7 +327,8 @@ Send ^!2
 Sleep 500
 Send {Tab}
 Send ^!1
-Send {Click 327, 276}
+; Send {Click 327, 276}
+Send {Click 792, 270}
 return
 
 ;爱奇艺关闭广告
