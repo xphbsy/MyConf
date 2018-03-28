@@ -136,12 +136,13 @@ return
 
 ; 使用Wox切换窗口
 #'::
-Send !{Space}
+Send #!{Space}
 state := IME_GET()
 If (state="1") ;此时为中文
 {
     Send {Shift}
 }
+Send ^a
 Send, w
 Send, {Space}
 Return
@@ -864,7 +865,7 @@ $!q::Send !q    ;覆盖通用映射，使用自己的
 return
 
 ; 在下一行添加一行
-^Enter::
++Enter::
 Send {End}
 Send {Enter}
 return
