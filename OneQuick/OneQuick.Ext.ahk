@@ -382,6 +382,21 @@ Send, !d
 Send, {Tab 13}
 Return
 
+;快速设置50分钟闹表
+!^e::
+Send {Click 654, 420, 2}
+Send {Click 721, 420, 2}
+Sleep, 200
+Send, {Tab 2}
+return
+
+;快速设置10分钟闹表
+!^q::
+Send {Click 616, 420, 2}
+Sleep, 200
+Send, {Tab 5}
+return
+
 ;一键加速
 !.::
 Send {Click 1086, 716}
@@ -389,7 +404,15 @@ Sleep 200
 Send {Click 684, 244}
 return
 
-; 搜索框
+; 切换到第一个标签页并刷新
+~^1::
+Sleep, 200
+Send, r
+Sleep, 1000
+Send, {Click 452, 407}
+Return
+
+; 打开百度
 #IfWinActive ahk_class Chrome_WidgetWin_2
 F10::Run http://www.baidu.com
 return
