@@ -408,7 +408,7 @@ return
 ~^1::
 Sleep, 200
 Send, r
-Sleep, 1000
+Sleep, 1500
 Send, {Click 452, 407}
 Return
 
@@ -667,6 +667,14 @@ If (state="1") ;此时为中文
         Send {Shift}
     }
 }
+return
+
+; 复制当前标签页中的全部内容
+#c::
+Send, ^a
+Send, ^c
+Send, ^u
+Send, ^u
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Visual Studio Code>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
