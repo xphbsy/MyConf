@@ -322,7 +322,7 @@ Sleep 200
 Send ^c
 Sleep 200
 Run http://wz.cnblogs.com/create
-Sleep 1500
+Sleep 2000
 Send gi
 Send ^!2
 Sleep 500
@@ -781,6 +781,17 @@ return
 #IfWinActive ahk_exe idea.exe
 $!q::Send !q    ;覆盖通用映射，使用自己的
 !w::Send ^{F4}
+!j::Send {down}
+!k::Send {up}
+!h::Send {left}
+!l::Send {right}
+;HOME END键映射
+!y::Send {Home}
+!o::Send {End}
+;上页翻页键映射
+!u::Send {PgUp}
+!i::Send {PgDn}
+return
 
 ^Space::
 SetKeyDelay, 10, 10
