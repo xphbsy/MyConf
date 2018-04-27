@@ -1143,6 +1143,9 @@ $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
 !k::Send {up}
 !h::Send {left}
 !l::Send {right}
+;HOME END键映射
+!y::Send {Home}
+!o::Send {End}
 return
 
 ; :*://::
@@ -1160,6 +1163,16 @@ If (state="1") ;此时为中文
 }
 return
 
+; 自动匹配中英文双引号
+:*b0:"::
+Send, "
+Send, {Left}
+Return
+
+; 自动匹配中英文单引号
+:*b0:'::'{left 1}
+Return
+
 ; ; 常用表情
 ; :*:/tx::
 ; sendbyclip("/tx")
@@ -1173,9 +1186,29 @@ return
 !k::Send {up}
 !h::Send {left}
 !l::Send {right}
+;HOME END键映射
+!y::Send {Home}
+!o::Send {End}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe Foxmail.exe
+!j::Send {down}
+!k::Send {up}
+!h::Send {left}
+!l::Send {right}
+;HOME END键映射
+!y::Send {Home}
+!o::Send {End}
+return
+
+; 打开选项菜单
+#IfWinActive ahk_class TFoxMainFrm.UnicodeClass
+Alt::
+Send {Click 1343, 43}
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<有道词典mini窗口>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class YdMiniModeWndClassName
 ^[::
