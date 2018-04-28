@@ -26,13 +26,6 @@ sendbyclip(var_string)
     Clipboard = %ClipboardOld%  ; Restore previous contents of clipboard.
 }
 
-; ;在所有编辑器中自动转换
-; #IfWinActive,ahk_group Editor
-; :*:///::
-; sendbyclip("//")
-; return
-
-; #IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;输入法配置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; http://ahk8.com/thread-3751.html
@@ -454,11 +447,6 @@ return
 !z::Send ^z
 $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
 $!q::Send !q
-;Alt + hjkl 实现对方向键的映射,写代码的时候灰常有用
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
 ^!j::Send ^{down}
 ^!k::Send ^{up}
 ^!h::Send ^{left}
@@ -469,9 +457,6 @@ $!q::Send !q
 !+k::Send +{up}
 #!h::Send ^+{left}
 #!l::Send ^+{right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
 ^!y::Send ^{Home}
 ^!o::Send ^{End}
 !+y::Send +{Home}
@@ -682,11 +667,6 @@ return
 !z::Send ^z
 $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
 $!q::Send !q
-;Alt + hjkl 实现对方向键的映射,写代码的时候灰常有用
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
 ^!j::Send ^{down}
 ^!k::Send ^{up}
 ^!h::Send ^{left}
@@ -697,9 +677,6 @@ $!q::Send !q
 !+k::Send +{up}
 #!h::Send ^+{left}
 #!l::Send ^+{right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
 ^!y::Send ^{Home}
 ^!o::Send ^{End}
 !+y::Send +{Home}
@@ -765,13 +742,6 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Eclipse>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class SWT_Window0
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
 ;上页翻页键映射
 !u::Send {PgUp}
 !i::Send {PgDn}
@@ -781,13 +751,6 @@ return
 #IfWinActive ahk_exe idea.exe
 $!q::Send !q    ;覆盖通用映射，使用自己的
 !w::Send ^{F4}
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
 ;上页翻页键映射
 !u::Send {PgUp}
 !i::Send {PgDn}
@@ -799,13 +762,7 @@ ControlSend, , ^{Space}, ahk_exe idea.exe
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_class Xshell::MainFrame_0
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-!y::Send {Home}
-!o::Send {End}
+; #IfWinActive ahk_class Xshell::MainFrame_0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent
@@ -842,12 +799,6 @@ return
 Send !{F4}
 return
 
-!h::Send {left}
-!l::Send {right}
-!j::Send {down}
-!k::Send {up}
-!y::Send {Home}
-!o::Send {End}
 ^j::Send !n
 ^k::Send !p
 ^l::Send !vl
@@ -880,18 +831,12 @@ return
 ^PgUp::Send ^+{Tab}
 ^PgDn::Send ^{Tab}
 $!q::Send !q    ;覆盖通用映射，使用自己的
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
 !+h::Send +{left}
 !+l::Send +{right}
 !+j::Send +{down}
 !+k::Send +{up}
 #!h::Send ^+{left}
 #!l::Send ^+{right}
-!y::Send {Home}
-!o::Send {End}
 ^!y::Send ^{Home}
 ^!o::Send ^{End}
 !+y::Send +{Home}
@@ -1004,10 +949,6 @@ return
 #IfWinActive ahk_exe Listary.exe
 ^n::Send ^j
 ^p::Send ^k
-!j::Send {down}
-!k::Send {up}
-!y::Send {Home}
-!o::Send {End}
 return
 
 ^[::
@@ -1019,26 +960,18 @@ return
 Send {Esc}
 return
 
-!h::
 ^h::
 Send {left}
 return
 
-!l::
 ^l::
 Send {right}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Listary结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Wox>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_exe Wox.exe
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-!y::Send {Home}
-!o::Send {End}
-return
+; #IfWinActive ahk_exe Wox.exe
+; return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<开始菜单>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class Windows.UI.Core.CoreWindow
@@ -1139,13 +1072,6 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<QQ和TIM>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class TXGuiFoundation
 $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
 return
 
 ; :*://::
@@ -1181,27 +1107,12 @@ Return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<QQ和TIM结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_class ChatWnd
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
-return
-
+; #IfWinActive ahk_class ChatWnd
+; return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_exe Foxmail.exe
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-;HOME END键映射
-!y::Send {Home}
-!o::Send {End}
-return
+; #IfWinActive ahk_exe Foxmail.exe
+; return
 
 ; 打开选项菜单
 #IfWinActive ahk_class TFoxMainFrm.UnicodeClass

@@ -13,6 +13,14 @@ GroupAdd, Editor, ahk_class WizNoteMainFrame  ;为知笔记
 GroupAdd, Editor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
 GroupAdd, Editor, ahk_exe Code.exe  ;Visual Studio Code
 GroupAdd, Editor, ahk_class SWT_Window0  ;Eclipse
+GroupAdd, Editor, ahk_exe idea.exe  ;IntelliJ IDEA
+GroupAdd, Editor, ahk_class Xshell::MainFrame_0  ;Xshell 5
+GroupAdd, Editor, ahk_exe hh.exe  ;chm
+GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
+GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
+GroupAdd, Editor, ahk_class TXGuiFoundation  ;QQ和TIM
+GroupAdd, Editor, ahk_class ChatWnd  ;微信
+GroupAdd, Editor, ahk_exe Foxmail.exe  ;Foxmail
 
 ;函数
 ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
@@ -46,6 +54,14 @@ If (state="1") ;此时为中文
 }
 return
 
+;Alt + hjkl 实现对方向键的映射,写代码的时候灰常有用
+!j::Send {down}
+!k::Send {up}
+!h::Send {left}
+!l::Send {right}
+;HOME END键映射
+!y::Send {Home}
+!o::Send {End}
 
 #IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
