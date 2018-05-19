@@ -163,7 +163,7 @@ Send {Esc}
 return
 
 RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
-RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
+; RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
 LAlt & `::ShiftAltTab
 return
 
@@ -747,6 +747,17 @@ return
 !i::Send {PgDn}
 return
 
+; 查找并粘贴
+^;::
+Send ^f
+Send ^v
+return
+
+; 自动完成
+^Space::
+Send !/
+return
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IntelliJ IDEA>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe idea.exe
 $!q::Send !q    ;覆盖通用映射，使用自己的
@@ -762,7 +773,12 @@ ControlSend, , ^{Space}, ahk_exe idea.exe
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; #IfWinActive ahk_class Xshell::MainFrame_0
+#IfWinActive ahk_exe C:\Program Files (x86)\NetSarang\Xshell 5\Xshell.exe
+; 查找上一个
++Enter::
+Send !u
+Send {Enter}
+Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent
