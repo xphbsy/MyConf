@@ -779,6 +779,13 @@ return
 Send !u
 Send {Enter}
 Return
+
+; 彻底清屏
+^!l::
+Send ^!l
+Send ^+l
+Send {Enter}
+return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent
