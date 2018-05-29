@@ -470,7 +470,7 @@ $!q::Send !q
 ^!i::Send ^{PgDn}
 #!u::Send ^+{PgUp}
 #!i::Send ^+{PgDn}
-!x::Send {Delete}
+>!x::Send {Delete}
 return
 
 ^[::Send {Esc}
@@ -786,6 +786,22 @@ Send ^!l
 Send ^+l
 Send {Enter}
 return
+
+; 用Listary打开选中文件
+#w::
+Send ^x
+Sleep 100
+Send {Ctrl down}{Ctrl up}
+Sleep 100
+Send {Ctrl down}{Ctrl up}
+; Send #;
+Sleep 100
+Send ^v
+return
+
+>!x::Send {Delete}
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent
@@ -1121,6 +1137,16 @@ Return
 ; 自动匹配中英文单引号
 :*b0:'::'{left 1}
 Return
+
+; 上一个聊天窗口
+^PgUp::
+Send ^+{Tab}
+return
+
+; 下一个聊天窗口
+^PgDn::
+Send ^{Tab}
+return
 
 ; ; 常用表情
 ; :*:/tx::
