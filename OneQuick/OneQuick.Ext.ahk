@@ -145,9 +145,9 @@ Return
 Send ^c
 Sleep 100
 Send ^!x
-Sleep 500
+Sleep 1000
 Send ^v
-Sleep 400
+Sleep 700
 Send {Enter}
 return
 
@@ -488,7 +488,7 @@ return
 Send ^c
 Sleep 100
 Send ^o
-Sleep 1000
+Sleep 1250
 ; Send {LWin Down}{Ctrl down}o{Ctrl up}{LWin Up}
 Send {Ctrl down}{Ctrl up}
 Sleep 100
@@ -500,7 +500,7 @@ return
 ; 用Listary打开文件
 ^o::
 Send ^o
-Sleep 700
+Sleep 1250
 Send {Ctrl down}{Ctrl up}
 Sleep 100
 Send {Ctrl down}{Ctrl up}
@@ -939,6 +939,12 @@ Send +{End}
 Send ^c
 return
 
+; 全选并复制
+#c::
+Send, ^a
+Send, ^c
+return
+
 ![::
 sendbyclip("【自注：】")
 Send, {Left}
@@ -1139,13 +1145,18 @@ Return
 Return
 
 ; 上一个聊天窗口
+^k::
 ^PgUp::
 Send ^+{Tab}
 return
 
 ; 下一个聊天窗口
+^j::
 ^PgDn::
 Send ^{Tab}
+return
+
+>!x::Send {Delete}
 return
 
 ; ; 常用表情
