@@ -155,11 +155,10 @@ return
 ; #q::Send {F8}
 ; Return
 
-;快速关闭番茄钟通知
+; 全选并复制
 #c::
-Send #a
-Sleep 100
-Send {Esc}
+Send, ^a
+Send, ^c
 return
 
 RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
@@ -937,12 +936,6 @@ Return
 Send {Home}
 Send +{End}
 Send ^c
-return
-
-; 全选并复制
-#c::
-Send, ^a
-Send, ^c
 return
 
 ![::
