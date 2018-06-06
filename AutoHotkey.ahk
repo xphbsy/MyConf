@@ -19,7 +19,7 @@ GroupAdd, Editor, ahk_exe hh.exe  ;chm
 GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
 GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
 GroupAdd, Editor, ahk_class TXGuiFoundation  ;QQ和TIM
-GroupAdd, Editor, ahk_class ChatWnd  ;微信
+GroupAdd, Editor, ahk_exe WeChat.exe  ;微信
 GroupAdd, Editor, ahk_exe Foxmail.exe  ;Foxmail
 
 ;函数
