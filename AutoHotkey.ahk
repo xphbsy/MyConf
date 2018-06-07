@@ -14,7 +14,7 @@ GroupAdd, Editor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
 GroupAdd, Editor, ahk_exe Code.exe  ;Visual Studio Code
 GroupAdd, Editor, ahk_class SWT_Window0  ;Eclipse
 GroupAdd, Editor, ahk_exe idea.exe  ;IntelliJ IDEA
-GroupAdd, Editor, ahk_class Xshell::MainFrame_0  ;Xshell 5
+GroupAdd, Editor, ahk_exe Xshell.exe  ;Xshell 5
 GroupAdd, Editor, ahk_exe hh.exe  ;chm
 GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
 GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
