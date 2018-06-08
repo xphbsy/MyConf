@@ -592,6 +592,13 @@ Send +{End 2}
 Send ^c
 return
 
+;剪切整行
+<!x::
+Send {Home 2}
+Send +{End 2}
+Send ^x
+return
+
 ;选择一行
 !a::
 Send {Home 2}
@@ -1150,6 +1157,13 @@ Send ^{Tab}
 return
 
 >!x::Send {Delete}
+return
+
+;剪切整行
+<!x::
+Send {Home}
+Send +{End}
+Send ^x
 return
 
 ; ; 常用表情
