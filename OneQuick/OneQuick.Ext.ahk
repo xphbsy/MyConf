@@ -1166,6 +1166,12 @@ Send +{End}
 Send ^x
 return
 
+; 在下一行添加一行
++Enter::
+Send {End}
+Send {Enter}
+return
+
 ; ; 常用表情
 ; :*:/tx::
 ; sendbyclip("/tx")
@@ -1174,8 +1180,12 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<QQ和TIM结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; #IfWinActive ahk_class ChatWnd
-; return
+#IfWinActive ahk_exe WeChat.exe
+; 在下一行添加一行
++Enter::
+Send {End}
+Send {Enter}
+return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; #IfWinActive ahk_exe Foxmail.exe
