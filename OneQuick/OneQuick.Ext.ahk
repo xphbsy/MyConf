@@ -442,7 +442,7 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_class PX_WINDOW_CLASS
+#IfWinActive ahk_exe sublime_text.exe
 !z::Send ^z
 $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
 $!q::Send !q
@@ -1062,6 +1062,16 @@ return
 ^+j::Send ^+n
 ^+k::Send ^+p
 $!q::Send !q    ;覆盖通用映射，使用自己的
+return
+
+; 前一个标签页
+^PgUp::
+Send ^+{Tab}
+return
+
+; 后一个标签页
+^PgDn::
+Send ^{Tab}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Bandizip>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
