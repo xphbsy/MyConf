@@ -778,6 +778,13 @@ SetKeyDelay, 10, 10
 ControlSend, , ^{Space}, ahk_exe idea.exe
 return
 
+;复制整行（不含换行符）
+!c::
+Send {End}
+Send +{Home}
+Send ^c
+return
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe C:\Program Files (x86)\NetSarang\Xshell 5\Xshell.exe
 ; 查找上一个
