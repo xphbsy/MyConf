@@ -250,6 +250,7 @@ Sleep, 200
 Send ^v
 return
 
+; 查找并粘贴
 #v::
 Send ^f
 Send ^v
@@ -570,6 +571,7 @@ Sleep 500
 Send #{up}
 return
 
+; 查找并粘贴
 #v::
 Send ^f
 Send ^v
@@ -785,6 +787,13 @@ Send +{Home}
 Send ^c
 return
 
+; 查找并粘贴
+#v::
+Send ^f
+Send ^v
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IntelliJ IDEA结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe C:\Program Files (x86)\NetSarang\Xshell 5\Xshell.exe
 ; 查找上一个
@@ -1241,6 +1250,11 @@ return
 !l::
 ^l::
 Send {right}
+return
+
+; 粘贴并回车
+~^v::
+Send {Enter}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<有道词典mini窗口结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
