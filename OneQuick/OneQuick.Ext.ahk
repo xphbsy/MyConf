@@ -920,9 +920,9 @@ return
 
 ; 在当前行添加一行
 ^+Enter::
-Send {up}
-Send {End}
+Send {Home}
 Send {Enter}
+Send {up}
 return
 
 ^;::
@@ -1198,6 +1198,13 @@ Send {End}
 Send {Enter}
 return
 
+; 在当前行添加一行
+^+Enter::
+Send {Home}
+Send {Enter}
+Send {up}
+return
+
 ; ; 常用表情
 ; :*:/tx::
 ; sendbyclip("/tx")
@@ -1348,9 +1355,9 @@ return
 
 ; 在当前行添加一行
 ^+Enter::
-Send {up}
-Send {End}
+Send {Home}
 Send {Enter}
+Send {up}
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS文字结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<PotPlayer>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
