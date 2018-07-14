@@ -164,6 +164,7 @@ return
 RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
 ; RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
 LAlt & `::ShiftAltTab
+RAlt & `::ShiftAltTab
 return
 
 ; 切换到任务栏中前一个已打开程序
@@ -241,8 +242,10 @@ return
 Send ^{PgDn}
 return
 
+; 查找选中内容
 ^;::
 ^q::
+^s::
 ^!f::
 Send ^c
 Send ^f
@@ -1261,6 +1264,7 @@ return
 
 ; 粘贴并回车
 ~^v::
+Sleep 200
 Send {Enter}
 return
 
