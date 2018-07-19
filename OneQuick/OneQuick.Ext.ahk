@@ -119,10 +119,10 @@ Return
 #w::
 Send ^c
 Sleep 100
-Send {Ctrl down}{Ctrl up}
-Sleep 100
-Send {Ctrl down}{Ctrl up}
-; Send #;
+; Send {Ctrl down}{Ctrl up}
+; Sleep 100
+; Send {Ctrl down}{Ctrl up}
+Send #n
 Sleep 100
 Send ^v
 return
@@ -493,9 +493,10 @@ Sleep 100
 Send ^o
 Sleep 1250
 ; Send {LWin Down}{Ctrl down}o{Ctrl up}{LWin Up}
-Send {Ctrl down}{Ctrl up}
-Sleep 100
-Send {Ctrl down}{Ctrl up}
+; Send {Ctrl down}{Ctrl up}
+; Sleep 100
+; Send {Ctrl down}{Ctrl up}
+Send #n
 Sleep 750
 Send ^v
 return
@@ -504,9 +505,10 @@ return
 ^o::
 Send ^o
 Sleep 1250
-Send {Ctrl down}{Ctrl up}
-Sleep 100
-Send {Ctrl down}{Ctrl up}
+; Send {Ctrl down}{Ctrl up}
+; Sleep 100
+; Send {Ctrl down}{Ctrl up}
+Send #n
 return
 
 ; 跳到指定字符左边
@@ -816,10 +818,10 @@ return
 #w::
 Send ^x
 Sleep 100
-Send {Ctrl down}{Ctrl up}
-Sleep 100
-Send {Ctrl down}{Ctrl up}
-; Send #;
+; Send {Ctrl down}{Ctrl up}
+; Sleep 100
+; Send {Ctrl down}{Ctrl up}
+Send #n
 Sleep 100
 Send ^v
 return
