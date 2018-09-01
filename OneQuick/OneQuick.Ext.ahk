@@ -165,6 +165,7 @@ RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move 
 ; RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
 LAlt & `::ShiftAltTab
 RAlt & `::ShiftAltTab
+RControl & BackSpace::ShiftAltTab  ; Hold down right-control then press \ repeatedly to move forward.
 return
 
 ; 切换到任务栏中前一个已打开程序
@@ -647,6 +648,7 @@ If (state="1") ;此时为中文
     state := IME_GET()
     If (state="0") ;此时为英文
     {
+        Sleep 300
         Send {Shift}
     }
 }
@@ -828,6 +830,11 @@ return
 
 >!x::Send {Delete}
 return
+
+; 增大字体
+^=::
+Send ^!+]
+Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
