@@ -505,7 +505,7 @@ return
 ; 用Listary打开文件
 ^o::
 Send ^o
-Sleep 1250
+Sleep 1500
 ; Send {Ctrl down}{Ctrl up}
 ; Sleep 100
 ; Send {Ctrl down}{Ctrl up}
@@ -1237,10 +1237,10 @@ return
 ; return
 
 ; 打开选项菜单
-#IfWinActive ahk_class TFoxMainFrm.UnicodeClass
-Alt::
-Send {Click 1343, 43}
-return
+; #IfWinActive ahk_class TFoxMainFrm.UnicodeClass
+; Alt::
+; Send {Click 1343, 43}
+; return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<有道词典mini窗口>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class YdMiniModeWndClassName
