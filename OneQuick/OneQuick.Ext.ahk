@@ -472,6 +472,8 @@ $!q::Send !q
 !i::Send {PgDn}
 ^!u::Send ^{PgUp}
 ^!i::Send ^{PgDn}
+^h::Send ^{PgUp}
+^l::Send ^{PgDn}
 #!u::Send ^+{PgUp}
 #!i::Send ^+{PgDn}
 >!x::Send {Delete}
@@ -513,15 +515,15 @@ Send #n
 return
 
 ; 跳到指定字符左边
-^l::
+^;::
 Send ^+'
 return
 
-; 跳到指定字符右边
-^;::
-Send !.
-Send ^+'
-return
+; ; 跳到指定字符右边
+; ^;::
+; Send !.
+; Send ^+'
+; return
 
 ; 选择到指定字符左边
 ^,::
@@ -756,7 +758,7 @@ $!a::Send !a    ;覆盖通用映射，使用自己的
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Eclipse>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_class SWT_Window0
+#IfWinActive ahk_exe eclipse.exe
 ;上页翻页键映射
 !u::Send {PgUp}
 !i::Send {PgDn}
