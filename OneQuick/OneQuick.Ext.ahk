@@ -168,14 +168,14 @@ RAlt & `::ShiftAltTab
 RControl & BackSpace::ShiftAltTab  ; Hold down right-control then press \ repeatedly to move forward.
 return
 
-; 切换到任务栏中前一个已打开程序
+; 切换到任务栏中前一个已打开程序（依赖于7+ Taskbar Tweaker）
 #h::
 #Left::
 Click 664, 747, 0
 Click WheelUp
 Return
 
-; 切换到任务栏中后一个已打开程序
+; 切换到任务栏中后一个已打开程序（依赖于7+ Taskbar Tweaker）
 #l::
 #Right::
 Click 664, 747, 0
@@ -1235,8 +1235,16 @@ Send {Enter}
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; #IfWinActive ahk_exe Foxmail.exe
-; return
+#IfWinActive ahk_exe Foxmail.exe
+; 增大字体
+^=::
+Send ^+.
+return
+
+; 减小字体
+^-::
+Send ^+,
+return
 
 ; 打开选项菜单
 ; #IfWinActive ahk_class TFoxMainFrm.UnicodeClass
@@ -1280,6 +1288,43 @@ Send {Enter}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<有道词典mini窗口结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<金山词霸mini窗口>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe PowerWord.exe
+^[::
+!w::
+^w::
+!Space::
+<!x::
+Send ^!x
+return
+
+!j::
+^j::
+Send {down}
+return
+
+!k::
+^k::
+Send {up}
+return
+
+!h::
+^h::
+Send {left}
+return
+
+!l::
+^l::
+Send {right}
+return
+
+; 粘贴并回车
+~^v::
+Sleep 200
+Send {Enter}
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<金山词霸mini窗口结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<百度网盘>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class BaseGui
 ^w::
