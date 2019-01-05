@@ -20,9 +20,11 @@ GroupAdd,idea,ahk_class SunAwtDialog  ;IntelliJ IDEA
 ;新开窗口时，切换到英文输入法的分组
 GroupAdd,en,ahk_exe explorer.exe
 GroupAdd,en,ahk_class Windows.UI.Core.CoreWindow
+GroupAdd,en,ahk_exe Xshell.exe
 
 ;窗口切换时，切换到英文输入法
 GroupAdd,en32772,ahk_class Listary_WidgetWin_0
+; GroupAdd,en32772,ahk_exe Xshell.exe
 
 setMSPinyin(){
 	;发送中文输入法切换快捷键，请根据实际情况设置。
