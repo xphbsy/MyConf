@@ -162,9 +162,12 @@ Send, ^c
 return
 
 RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
+; LControl & Esc::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
+LWin & LAlt::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
 ; RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
 LAlt & `::ShiftAltTab
 RAlt & `::ShiftAltTab
+LWin & LControl::ShiftAltTab
 RControl & BackSpace::ShiftAltTab  ; Hold down right-control then press \ repeatedly to move forward.
 return
 
