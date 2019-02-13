@@ -14,6 +14,7 @@ GroupAdd, Editor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
 GroupAdd, Editor, ahk_exe Code.exe  ;Visual Studio Code
 GroupAdd, Editor, ahk_class SWT_Window0  ;Eclipse
 GroupAdd, Editor, ahk_exe idea.exe  ;IntelliJ IDEA
+GroupAdd, Editor, ahk_exe pycharm64.exe  ;PyCharm
 GroupAdd, Editor, ahk_exe Xshell.exe  ;Xshell 5
 GroupAdd, Editor, ahk_exe hh.exe  ;chm
 GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
@@ -21,6 +22,9 @@ GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
 GroupAdd, Editor, ahk_class TXGuiFoundation  ;QQ和TIM
 GroupAdd, Editor, ahk_exe WeChat.exe  ;微信
 GroupAdd, Editor, ahk_exe Foxmail.exe  ;Foxmail
+
+GroupAdd, JetBrainsEditor, ahk_exe idea.exe  ;IntelliJ IDEA
+GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
 
 ;函数
 ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
@@ -39,6 +43,7 @@ sendbyclip(var_string)
 ;   send #{Space}
 ; }
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Editor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;在所有编辑器中自动转换
 #IfWinActive,ahk_group Editor
 ; :*:///::
@@ -64,6 +69,34 @@ return
 !o::Send {End}
 
 #IfWinActive
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Editor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group JetBrainsEditor
+$!q::Send !q    ;覆盖通用映射，使用自己的
+!w::Send ^{F4}
+;上页翻页键映射
+!u::Send {PgUp}
+!i::Send {PgDn}
+return
+
+^Space::
+SetKeyDelay, 10, 10
+ControlSend, , ^{Space}, ahk_group JetBrainsEditor
+return
+
+;复制整行（不含换行符）
+!c::
+Send {End}
+Send +{Home}
+Send ^c
+return
+
+; 查找并粘贴
+#v::
+Send ^f
+Send ^v
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
 ;Return
@@ -74,10 +107,10 @@ return
 ; http://www.jianshu.com/p/32d6452b1280
 ;---- 本脚本开关、快速编辑和重启 -------------------
 
-RCtrl & End:: 
-    suspend ; AutoHotKey 挂起/激活双向开关 
+RCtrl & End::
+    suspend ; AutoHotKey 挂起/激活双向开关
     traytip,AutoHotKey,热键状态已切换
-    ;msgbox,64,激活 VS 挂起,^-^ AutoHotKey 挂起/激活双向开关 ^-^,0.2 
+    ;msgbox,64,激活 VS 挂起,^-^ AutoHotKey 挂起/激活双向开关 ^-^,0.2
 return
 #^e::
 Edit   ; Edit the script by Alt+Ctrl+E.

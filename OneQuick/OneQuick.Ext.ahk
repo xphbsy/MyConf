@@ -778,34 +778,6 @@ return
 Send !/
 return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IntelliJ IDEA>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_exe idea.exe
-$!q::Send !q    ;覆盖通用映射，使用自己的
-!w::Send ^{F4}
-;上页翻页键映射
-!u::Send {PgUp}
-!i::Send {PgDn}
-return
-
-^Space::
-SetKeyDelay, 10, 10
-ControlSend, , ^{Space}, ahk_exe idea.exe
-return
-
-;复制整行（不含换行符）
-!c::
-Send {End}
-Send +{Home}
-Send ^c
-return
-
-; 查找并粘贴
-#v::
-Send ^f
-Send ^v
-return
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IntelliJ IDEA结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe C:\Program Files (x86)\NetSarang\Xshell 5\Xshell.exe
 ; 查找上一个
