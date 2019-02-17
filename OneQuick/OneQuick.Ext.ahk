@@ -219,9 +219,9 @@ Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;快速命令结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;通用键的映射;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;对windows下的一些常用键进行映射,与苹果下的一些习惯一样(苹果下的快捷键有些非常合理:)
-!w::Send ^w
-!q::!F4    ;退出
-return
+; !w::Send ^w
+; !q::!F4    ;退出
+; return
 
 ;选择一行
 !a::
@@ -451,40 +451,11 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe sublime_text.exe
-!z::Send ^z
-$!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
-$!q::Send !q
-^!j::Send ^{down}
-^!k::Send ^{up}
-^!h::Send ^{left}
-^!l::Send ^{right}
-!+h::Send +{left}
-!+l::Send +{right}
-!+j::Send +{down}
-!+k::Send +{up}
-#!h::Send ^+{left}
-#!l::Send ^+{right}
-^!y::Send ^{Home}
-^!o::Send ^{End}
-!+y::Send +{Home}
-!+o::Send +{End}
-#!y::Send ^+{Home}
-#!o::Send ^+{End}
-;上页翻页键映射
-!u::Send {PgUp}
-!i::Send {PgDn}
-^!u::Send ^{PgUp}
-^!i::Send ^{PgDn}
-^h::Send ^{PgUp}
-^l::Send ^{PgDn}
-#!u::Send ^+{PgUp}
-#!i::Send ^+{PgDn}
 >!x::Send {Delete}
 return
 
-^[::Send {Esc}
+; 反缩进
 ^!]::Send ^[
-; +Space::Send !/
 return
 
 ;复制tab
@@ -511,9 +482,6 @@ return
 ^o::
 Send ^o
 Sleep 1500
-; Send {Ctrl down}{Ctrl up}
-; Sleep 100
-; Send {Ctrl down}{Ctrl up}
 Send #n
 return
 
@@ -580,12 +548,6 @@ return
 ~^+n::
 Sleep 500
 Send #{up}
-return
-
-; 查找并粘贴
-#v::
-Send ^f
-Send ^v
 return
 
 ![::
@@ -684,69 +646,41 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Sublime Text结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Visual Studio Code>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Code.exe
-!z::Send ^z
-$!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
-$!q::Send !q
-^!j::Send ^{down}
-^!k::Send ^{up}
-^!h::Send ^{left}
-^!l::Send ^{right}
-!+h::Send +{left}
-!+l::Send +{right}
-!+j::Send +{down}
-!+k::Send +{up}
-#!h::Send ^+{left}
-#!l::Send ^+{right}
-^!y::Send ^{Home}
-^!o::Send ^{End}
-!+y::Send +{Home}
-!+o::Send +{End}
-#!y::Send ^+{Home}
-#!o::Send ^+{End}
-;上页翻页键映射
-!u::Send {PgUp}
-!i::Send {PgDn}
-^!u::Send ^{PgUp}
-^!i::Send ^{PgDn}
 #!u::Send ^+{PgUp}
 #!i::Send ^+{PgDn}
 return
 
-^[::Send {Esc}
-
-;打开选中文件
+;用Listary打开选中文件
 ^+o::
 Send ^c
 Sleep 100
 Send ^o
 Sleep 500
-Send {LWin Down}{Ctrl down}o{Ctrl up}{LWin Up}
+Send #n
 Sleep 100
 Send ^v
 return
 
+; 用Listary打开文件
 ^o::
 Send ^o
 Sleep 500
-Send {Ctrl down}{Ctrl up}
-Sleep 100
-Send {Ctrl down}{Ctrl up}
-; Send {LWin Down}{Ctrl down}o{Ctrl up}{LWin Up}
+Send #n
 return
 
 ^Space::
 SetKeyDelay, 10, 10
-ControlSend, Chrome_RenderWidgetHostHWND1, ^{Space}, ahk_exe Code.exe
+ControlSend, , ^{Space}, ahk_exe Code.exe
 return
 
 +Space::
 SetKeyDelay, 10, 10
-ControlSend, Chrome_RenderWidgetHostHWND1, +{Space}, ahk_exe Code.exe
+ControlSend, , +{Space}, ahk_exe Code.exe
 return
 
 !+Space::
 SetKeyDelay, 10, 10
-ControlSend, Chrome_RenderWidgetHostHWND1, !+{Space}, ahk_exe Code.exe
+ControlSend, , !+{Space}, ahk_exe Code.exe
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Visual Studio Code结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -762,17 +696,6 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Eclipse>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe eclipse.exe
-;上页翻页键映射
-!u::Send {PgUp}
-!i::Send {PgDn}
-return
-
-; 查找并粘贴
-^;::
-Send ^f
-Send ^v
-return
-
 ; 自动完成
 ^Space::
 Send !/
@@ -994,6 +917,8 @@ return
 Sleep 200
 Send {Click 507, 441}
 return
+
+!w::Send ^w
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<资源管理器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Listary>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Listary.exe
@@ -1301,7 +1226,7 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<金山词霸mini窗口结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<百度网盘>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_class BaseGui
+#IfWinActive ahk_exe baidunetdisk.exe
 ^w::
 !w::
 Send !{F4}
@@ -1358,6 +1283,8 @@ return
 ^!0::
 ControlSend, Photos_PhotoCanvas1, ^!0, ahk_class Photo_Lightweight_Viewer
 return
+
+!q::!F4
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Ditto>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class QPasteClass
 !j::

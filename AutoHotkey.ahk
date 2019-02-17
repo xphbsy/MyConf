@@ -10,11 +10,8 @@ Run, D:\任务计划备份\发送重启OneQuick快捷键.vbs
 ;编辑器分组
 GroupAdd, Editor, ahk_class Notepad  ;记事本
 GroupAdd, Editor, ahk_class WizNoteMainFrame  ;为知笔记
-GroupAdd, Editor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
-GroupAdd, Editor, ahk_exe Code.exe  ;Visual Studio Code
-GroupAdd, Editor, ahk_class SWT_Window0  ;Eclipse
-GroupAdd, Editor, ahk_exe idea.exe  ;IntelliJ IDEA
-GroupAdd, Editor, ahk_exe pycharm64.exe  ;PyCharm
+GroupAdd, Editor, ahk_group ModernEditor
+GroupAdd, Editor, ahk_group IDEEditor
 GroupAdd, Editor, ahk_exe Xshell.exe  ;Xshell 5
 GroupAdd, Editor, ahk_exe hh.exe  ;chm
 GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
@@ -22,6 +19,12 @@ GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
 GroupAdd, Editor, ahk_class TXGuiFoundation  ;QQ和TIM
 GroupAdd, Editor, ahk_exe WeChat.exe  ;微信
 GroupAdd, Editor, ahk_exe Foxmail.exe  ;Foxmail
+
+GroupAdd, ModernEditor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
+GroupAdd, ModernEditor, ahk_exe Code.exe  ;Visual Studio Code
+
+GroupAdd, IDEEditor, ahk_exe eclipse.exe  ;Eclipse
+GroupAdd, IDEEditor, ahk_group JetBrainsEditor
 
 GroupAdd, JetBrainsEditor, ahk_exe idea.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
@@ -70,14 +73,70 @@ return
 
 #IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Editor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive,ahk_group JetBrainsEditor
-$!q::Send !q    ;覆盖通用映射，使用自己的
-!w::Send ^{F4}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<ModernEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group ModernEditor
+!z::Send ^z
+$!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
+$!q::Send !q
+^!j::Send ^{down}
+^!k::Send ^{up}
+^!h::Send ^{left}
+^!l::Send ^{right}
+!+h::Send +{left}
+!+l::Send +{right}
+!+j::Send +{down}
+!+k::Send +{up}
+#!h::Send ^+{left}
+#!l::Send ^+{right}
+^!y::Send ^{Home}
+^!o::Send ^{End}
+!+y::Send +{Home}
+!+o::Send +{End}
+#!y::Send ^+{Home}
+#!o::Send ^+{End}
+;上页翻页键映射
+!u::Send {PgUp}
+!i::Send {PgDn}
+^!u::Send ^{PgUp}
+^!i::Send ^{PgDn}
+^h::Send ^{PgUp}
+^l::Send ^{PgDn}
+#!u::Send ^+{PgUp}
+#!i::Send ^+{PgDn}
+
+; 查找并粘贴
+#v::
+Send ^f
+Send ^v
+return
+
+#IfWinActive
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<ModernEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IDEEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group IDEEditor
 ;上页翻页键映射
 !u::Send {PgUp}
 !i::Send {PgDn}
 return
+
+; 查找并粘贴
+#v::
+Send ^f
+Send ^v
+return
+
+; 下一次出现
+^.::
+SetKeyDelay, 10, 10
+ControlSend, , ^{.}, ahk_group IDEEditor
+return
+
+#IfWinActive
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<IDEEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group JetBrainsEditor
+$!q::Send !q    ;覆盖通用映射，使用自己的
+!w::Send ^{F4}
 
 ^Space::
 SetKeyDelay, 10, 10
@@ -91,11 +150,7 @@ Send +{Home}
 Send ^c
 return
 
-; 查找并粘贴
-#v::
-Send ^f
-Send ^v
-return
+#IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
