@@ -43,6 +43,12 @@ GroupAdd, Browser, ahk_exe 360se.exe  ;360安全浏览器
 GroupAdd, Browser, ahk_exe chrome.exe  ;谷歌浏览器
 GroupAdd, Browser, ahk_exe 360chrome.exe  ;360极速浏览器
 
+;可使用Alt+q关闭窗口的软件分组（AltQAvailableSoftware）
+GroupAdd, AQAS, ahk_class TXGuiFoundation  ;TIM和QQ
+GroupAdd, AQAS, ahk_exe WeChat.exe  ;微信
+GroupAdd, AQAS, ahk_class Photo_Lightweight_Viewer  ;Windows 照片查看器
+GroupAdd, AQAS, ahk_exe Foxmail.exe  ;Foxmail
+
 ;函数
 ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
 sendbyclip(var_string)
@@ -179,6 +185,11 @@ Sleep, 200
 Send ^v
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AQAS>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group AQAS
+!q::!F4
+Return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AQAS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
 ;Return

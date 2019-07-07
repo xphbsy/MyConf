@@ -1272,8 +1272,6 @@ return
 ^!0::
 ControlSend, Photos_PhotoCanvas1, ^!0, ahk_class Photo_Lightweight_Viewer
 return
-
-!q::!F4
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Ditto>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class QPasteClass
 !j::
