@@ -246,17 +246,6 @@ return
 Send ^{PgDn}
 return
 
-; 查找选中内容
-^;::
-^q::
-^s::
-^!f::
-Send ^c
-Send ^f
-Sleep, 200
-Send ^v
-return
-
 ; 查找并粘贴
 #v::
 Send ^f

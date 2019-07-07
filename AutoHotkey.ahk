@@ -38,6 +38,11 @@ GroupAdd, JetBrainsEditor, ahk_exe idea.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe idea64.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
 
+;浏览器分组
+GroupAdd, Browser, ahk_exe 360se.exe  ;360安全浏览器
+GroupAdd, Browser, ahk_exe chrome.exe  ;谷歌浏览器
+GroupAdd, Browser, ahk_exe 360chrome.exe  ;360极速浏览器
+
 ;函数
 ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
 sendbyclip(var_string)
@@ -161,6 +166,19 @@ return
 
 #IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group Browser
+; 查找选中内容
+^;::
+^q::
+^s::
+^!f::
+Send ^c
+Send ^f
+Sleep, 200
+Send ^v
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
 ;Return
