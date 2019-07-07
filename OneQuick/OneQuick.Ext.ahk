@@ -20,9 +20,9 @@ sendbyclip(var_string)
 {
     ClipboardOld = %ClipboardAll%
     Clipboard =%var_string%
-    sleep 100
+    sleep 200
     send ^v
-    sleep 100
+    sleep 200
     Clipboard = %ClipboardOld%  ; Restore previous contents of clipboard.
 }
 
@@ -1307,6 +1307,14 @@ return
 Send {right}
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Ditto结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe wps.exe
+; 前一个标签
+^PgUp::Send ^+{Tab}
+; 后一个标签
+^PgDn::Send ^{Tab}
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS文字>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_class OpusApp
 ; 在下一行添加一行

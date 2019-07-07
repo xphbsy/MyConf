@@ -6,6 +6,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 因任务计划程序无法创建任务计划，通过此方法重启OneQuick
 Sleep, 10000
 Run, D:\任务计划备份\发送重启OneQuick快捷键.vbs
+
+; 因TIM启动后容易卡死，延迟启动TIM
+Sleep, 60000
+Run, C:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe
+
+; 为自动将输入法切换成英文状态，延迟启动XYplorer
+Run, D:\软件\XYPlorer-亚信\XYplorer.exe
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;编辑器分组
 GroupAdd, Editor, ahk_class Notepad  ;记事本
@@ -27,6 +35,7 @@ GroupAdd, IDEEditor, ahk_exe eclipse.exe  ;Eclipse
 GroupAdd, IDEEditor, ahk_group JetBrainsEditor
 
 GroupAdd, JetBrainsEditor, ahk_exe idea.exe  ;IntelliJ IDEA
+GroupAdd, JetBrainsEditor, ahk_exe idea64.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
 
 ;函数
