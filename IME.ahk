@@ -8,15 +8,6 @@
 
 
 ;=====分组配置
-;新开窗口时，切换到微软拼音输入法的分组
-GroupAdd,idea,ahk_exe idea.exe  ;IntelliJ IDEA
-GroupAdd,idea,ahk_class SunAwtFrame  ;IntelliJ IDEA
-GroupAdd,idea,ahk_class SunAwtDialog  ;IntelliJ IDEA
-; GroupAdd,idea,ahk_class Notepad
-
-;窗口切换时，切换到微软拼音输入法的分组
-; GroupAdd,idea32772,ahk_exe idea.exe  ;IntelliJ IDEA
-
 ;新开窗口时，切换到英文输入法的分组
 GroupAdd,en,ahk_exe explorer.exe
 GroupAdd,en,ahk_class Windows.UI.Core.CoreWindow
@@ -26,13 +17,6 @@ GroupAdd,en,ahk_exe Xshell.exe
 GroupAdd,en32772,ahk_class Listary_WidgetWin_0
 ; GroupAdd,en32772,ahk_exe Xshell.exe
 
-setMSPinyin(){
-	;发送中文输入法切换快捷键，请根据实际情况设置。
-	; ToolTip, mspinyin
-	Send ^+{F11}
-	Sleep, 500
-	Send #{Space}
-}
 setEnglishLayout(){
 	;发送英文输入法切换快捷键，请根据实际情况设置。
   Send {Shift}
@@ -73,12 +57,6 @@ ShellMessage( wParam,lParam ) {
 		;WinActivate,ahk_class %Winclass%
 		;WinGetActiveTitle, Title
 		;MsgBox, The active window is "%Title%".
-		IfWinActive,ahk_group idea
-		{
-			setMSPinyin()
-			TrayTip,AHK, 已自动切换到微软拼音输入法
-			return
-		}
 		IfWinActive,ahk_group en
 		{
 			setEnglishLayout()
@@ -94,11 +72,5 @@ ShellMessage( wParam,lParam ) {
 			TrayTip,AHK, 已自动切换到英文输入法
 			return
 		}
-		; IfWinActive,ahk_group idea32772
-		; {
-		; 	setMSPinyin()
-		; 	TrayTip,AHK, 已自动切换到微软拼音输入法
-		; 	return
-		; }
 	}
 }
