@@ -13,11 +13,13 @@ GroupAdd,en,ahk_exe explorer.exe
 GroupAdd,en,ahk_exe XYplorer.exe
 GroupAdd,en,ahk_class Windows.UI.Core.CoreWindow
 GroupAdd,en,ahk_exe Xshell.exe
+GroupAdd,en,ahk_exe mintty.exe ;Git Bash
 
 ;窗口切换时，切换到英文输入法的分组
 GroupAdd,en32772,ahk_class Listary_WidgetWin_0
 GroupAdd,en32772,ahk_exe XYplorer.exe
 GroupAdd,en32772,ahk_exe Xshell.exe
+GroupAdd,en32772,ahk_exe mintty.exe
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;输入法配置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; http://ahk8.com/thread-3751.html
