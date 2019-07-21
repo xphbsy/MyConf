@@ -792,7 +792,7 @@ return
 #IfWinActive ahk_class WizNoteMainFrame
 ^PgUp::Send ^+{Tab}
 ^PgDn::Send ^{Tab}
-$!q::Send !q    ;覆盖通用映射，使用自己的
+; $!q::Send !q    ;覆盖通用映射，使用自己的
 !+h::Send +{left}
 !+l::Send +{right}
 !+j::Send +{down}
