@@ -301,7 +301,9 @@ Send {Click 19, 161}
 return
 
 ^Space::
-Send, mc
+Send, m
+Sleep 500
+Send, c
 return
 
 ;添加博客园网摘，要先选中标题
@@ -394,7 +396,8 @@ Send {Click 684, 244}
 return
 
 ; 切换到第一个标签页并刷新
-~^1::
+^!1::
+Send, 1
 Sleep, 200
 Send, r
 Sleep, 1500
@@ -1122,6 +1125,16 @@ return
 Send {End}
 Send {Enter}
 return
+
+^h::
+sendbyclip("好的")
+Send ^{Enter}
+Return
+
+^e::
+sendbyclip("嗯")
+Send ^{Enter}
+Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Foxmail.exe
