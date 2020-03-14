@@ -270,12 +270,6 @@ return
 ; $!q::Send !q    ;覆盖通用映射，使用自己的
 ; return
 
-!j::Send {down}
-!k::Send {up}
-!h::Send {left}
-!l::Send {right}
-return
-
 ^+f::
 Send +{Enter}
 return
@@ -298,12 +292,6 @@ return
 ;关闭或打开侧边栏收藏夹
 !q::
 Send {Click 19, 161}
-return
-
-^Space::
-Send, m
-Sleep 500
-Send, c
 return
 
 ;添加博客园网摘，要先选中标题
@@ -410,23 +398,11 @@ F10::Run http://www.baidu.com
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360se6结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360极速浏览器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#IfWinActive ahk_exe 360chrome.exe
+; #IfWinActive ahk_exe 360chrome.exe
 
-^Space::
-Send, m
-Sleep 500
-Send, c
-return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360极速浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe chrome.exe
-^;::
-^!f::
-Send ^c
-Send ^f
-Send ^v
-return
-
 ^!l::
 Send ^{PgDn}
 Send ^w
@@ -443,10 +419,6 @@ Send {Esc}
 return
 
 $!q::Send !q    ;覆盖通用映射，使用自己的
-return
-
-!j::Send {down}
-!k::Send {up}
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
