@@ -123,7 +123,7 @@ Sleep 100
 ; Sleep 100
 ; Send {Ctrl down}{Ctrl up}
 Send #n
-Sleep 100
+Sleep 1000
 Send ^v
 return
 
@@ -409,6 +409,15 @@ Return
 F10::Run http://www.baidu.com
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360se6结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360极速浏览器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe 360chrome.exe
+
+^Space::
+Send, m
+Sleep 500
+Send, c
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360极速浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe chrome.exe
 ^;::
@@ -1133,6 +1142,11 @@ Return
 
 ^e::
 sendbyclip("嗯")
+Send ^{Enter}
+Return
+
+^s::
+sendbyclip("收到")
 Send ^{Enter}
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
