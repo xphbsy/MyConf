@@ -238,14 +238,6 @@ return
 ;Send ^v
 ;return
 
-^h::
-Send ^{PgUp}
-return
-
-^l::
-Send ^{PgDn}
-return
-
 ; 查找并粘贴
 #v::
 Send ^f
@@ -419,6 +411,11 @@ Send {Esc}
 return
 
 $!q::Send !q    ;覆盖通用映射，使用自己的
+return
+
+^+h::
+SetKeyDelay, 10, 10
+ControlSend, ahk_parent, ^h, ahk_class Chrome_WidgetWin_1
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -709,6 +706,13 @@ return
 Send ^!+]
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Xshell 5结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<SecureCRT>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe SecureCRT.exe
+^v::
+Send +{Insert}
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<SecureCRT结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<chm>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 同时关闭AutoHotkey的中英文帮助
 #IfWinActive AutoHotkey Help ahk_class HH Parent

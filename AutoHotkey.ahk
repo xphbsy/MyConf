@@ -175,6 +175,15 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group Browser
+
+^h::
+Send ^{PgUp}
+return
+
+^l::
+Send ^{PgDn}
+return
+
 !j::Send {down}
 !k::Send {up}
 !h::Send {left}
