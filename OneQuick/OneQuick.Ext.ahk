@@ -20,7 +20,7 @@ sendbyclip(var_string)
 {
     ClipboardOld = %ClipboardAll%
     Clipboard =%var_string%
-    sleep 200
+    sleep 500
     send ^v
     sleep 200
     Clipboard = %ClipboardOld%  ; Restore previous contents of clipboard.
@@ -1111,8 +1111,13 @@ Send {End}
 Send {Enter}
 return
 
-^h::
+^d::
 sendbyclip("好的")
+Send ^{Enter}
+Return
+
+^h::
+sendbyclip("好")
 Send ^{Enter}
 Return
 
@@ -1123,6 +1128,11 @@ Return
 
 ^s::
 sendbyclip("收到")
+Send ^{Enter}
+Return
+
+^o::
+sendbyclip("哦")
 Send ^{Enter}
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
