@@ -50,6 +50,11 @@ GroupAdd, AQAS, ahk_class Photo_Lightweight_Viewer  ;Windows 照片查看器
 GroupAdd, AQAS, ahk_exe Foxmail.exe  ;Foxmail
 GroupAdd, AQAS, ahk_exe Wiz.exe  ;为知笔记
 
+;终端分组
+GroupAdd, Terminal, ahk_exe SecureCRT.exe  ;SecureCRT
+GroupAdd, Terminal, ahk_exe WindowsTerminal.exe  ;Windows Terminal
+GroupAdd, Terminal, ahk_exe ConEmu64.exe  ;Cmder
+
 ;函数
 ;通过剪贴板粘贴的方法，将要输出的内容粘贴到光标处
 sendbyclip(var_string)
@@ -212,6 +217,18 @@ return
 !q::!F4
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AQAS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Terminal>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group Terminal
+^PgUp::
+^h::
+Send ^+{Tab}
+Return
+
+^PgDn::
+^l::
+Send ^{Tab}
+Return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Terminal结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;分组配置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;#j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
 ;Return
