@@ -8,8 +8,8 @@ Sleep, 10000
 Run, D:\任务计划备份\发送重启OneQuick快捷键.vbs
 
 ; 因TIM启动后容易卡死，延迟启动TIM
-Sleep, 60000
-Run, C:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe
+; Sleep, 60000
+; Run, C:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe
 
 ; 为自动将输入法切换成英文状态，延迟启动XYplorer
 Run, D:\软件\XYPlorer-亚信\XYplorer.exe
