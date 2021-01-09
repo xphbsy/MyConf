@@ -430,7 +430,9 @@ return
 
 ;复制tab
 !e::
-Send !fe
+Send {Alt}
+Sleep, 1000
+Send fe
 return
 
 ; 用Listary打开选中文件
