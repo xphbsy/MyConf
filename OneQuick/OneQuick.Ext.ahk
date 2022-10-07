@@ -111,6 +111,7 @@ Return
 #j::
 ; Send #;
 Send #n
+Sleep 100
 sendbyclip("b")
 Send, {Space}
 Return
@@ -1141,6 +1142,23 @@ Return
 sendbyclip("哦")
 Send ^{Enter}
 Return
+
+^m::
+sendbyclip("验证码")
+Send ^{Enter}
+Return
+
+; 自动匹配英文中括号以便于发自带表情
+~[::
+state := IME_GET()
+If (state="0") ;此时为英文
+{
+    Send, ]
+    Send, {Left}
+    Sleep 300
+    Send {Shift}
+}
+return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Foxmail.exe
@@ -1319,6 +1337,14 @@ return
 ^PgUp::Send ^+{Tab}
 ; 后一个标签
 ^PgDn::Send ^{Tab}
+return
+
+; 在WPS表格中复制单元格内容
+^+c::
+Sleep 500
+Send {F2}
+Send ^a
+Send ^c
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS文字>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
