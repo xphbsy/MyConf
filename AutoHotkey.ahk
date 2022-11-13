@@ -38,6 +38,10 @@ GroupAdd, JetBrainsEditor, ahk_exe idea.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe idea64.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
 
+; 微信和企业微信分组
+GroupAdd, WeixinEditor, ahk_exe WeChat.exe  ;微信
+GroupAdd, WeixinEditor, ahk_exe WXWork.exe  ;企业微信
+
 ;浏览器分组
 GroupAdd, Browser, ahk_exe 360se.exe  ;360安全浏览器
 GroupAdd, Browser, ahk_exe chrome.exe  ;谷歌浏览器
@@ -178,6 +182,45 @@ return
 
 #IfWinActive
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<JetBrainsEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WeixinEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group WeixinEditor
+^d::
+sendbyclip("好的")
+Send {Enter}
+Return
+
+^s::
+sendbyclip("收到")
+Send {Enter}
+Return
+
+^h::
+sendbyclip("好")
+Send {Enter}
+Return
+
+^e::
+sendbyclip("嗯")
+Send {Enter}
+Return
+
+^o::
+sendbyclip("哦")
+Send {Enter}
+Return
+
+^m::
+sendbyclip("验证码")
+Send {Enter}
+Return
+
+; 在下一行添加一行
++Enter::
+Send {End}
+Send ^{Enter}
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WeixinEditor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group Browser
 

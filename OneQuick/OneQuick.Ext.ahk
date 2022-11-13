@@ -1112,42 +1112,6 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<QQ和TIM结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe WeChat.exe
-; 在下一行添加一行
-+Enter::
-Send {End}
-Send {Enter}
-return
-
-^d::
-sendbyclip("好的")
-Send ^{Enter}
-Return
-
-^h::
-sendbyclip("好")
-Send ^{Enter}
-Return
-
-^e::
-sendbyclip("嗯")
-Send ^{Enter}
-Return
-
-^s::
-sendbyclip("收到")
-Send ^{Enter}
-Return
-
-^o::
-sendbyclip("哦")
-Send ^{Enter}
-Return
-
-^m::
-sendbyclip("验证码")
-Send ^{Enter}
-Return
-
 ; 自动匹配英文中括号以便于发自带表情
 ~[::
 state := IME_GET()
@@ -1159,6 +1123,7 @@ If (state="0") ;此时为英文
     Send {Shift}
 }
 return
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Foxmail.exe
