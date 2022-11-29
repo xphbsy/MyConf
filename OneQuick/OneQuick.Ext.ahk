@@ -3,7 +3,7 @@ class User_LENOVO_PC
 {
 	Ini()
 	{
-    OneQuick.Editor := "C:\Program Files\Sublime Text 3\sublime_text.exe"
+    OneQuick.Editor := "D:\Program Files\Sublime Text 3\sublime_text.exe"
 	}
 }
 
@@ -141,14 +141,14 @@ Send, w
 Send, {Space}
 Return
 
-; 用有道词典打开选中单词
+; 在有道词典或金山词霸mini窗口查询选中单词
 <!x::
 Send ^c
-Sleep 100
+Sleep 250
 Send ^!x
 Sleep 1000
 Send ^v
-Sleep 700
+Sleep 250
 Send {Enter}
 return
 
@@ -267,11 +267,11 @@ return
 Send +{Enter}
 return
 
-;打开侧边栏收藏夹
-!s::
-Send {Click 19, 161}
-Send {Click 79, 178}
-return
+; ;打开侧边栏收藏夹
+; !s::
+; Send {Click 19, 161}
+; Send {Click 79, 178}
+; return
 
 ;在侧边栏收藏夹中搜索当前网址
 !v::
@@ -827,29 +827,6 @@ Send ^f
 Send ^v
 return
 
-; 自动匹配中英文单引号
-:*b0:'::'{left 1}
-Return
-
-; 自动匹配中英文双引号
-:*b0:"::
-Send, "
-Send, {Left}
-Return
-
-; 自动匹配中英文括号
-:*b0:(::){left 1}
-state := IME_GET()
-If (state="0") ;此时为英文
-{
-  Send {Shift}
-}
-Return
-
-; 自动匹配中英文书名号
-:*b0:<::>{left 1}
-Return
-
 ;复制整行（不含换行符）
 !c::
 Send {Home}
@@ -1057,16 +1034,6 @@ If (state="1") ;此时为中文
     Send /
 }
 return
-
-; 自动匹配中英文双引号
-:*b0:"::
-Send, "
-Send, {Left}
-Return
-
-; 自动匹配中英文单引号
-:*b0:'::'{left 1}
-Return
 
 ; 上一个聊天窗口
 ^k::

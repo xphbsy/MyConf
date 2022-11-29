@@ -20,12 +20,12 @@ GroupAdd, Editor, ahk_class Notepad  ;记事本
 GroupAdd, Editor, ahk_class WizNoteMainFrame  ;为知笔记
 GroupAdd, Editor, ahk_group ModernEditor
 GroupAdd, Editor, ahk_group IDEEditor
+GroupAdd, Editor, ahk_group WeixinEditor
 GroupAdd, Editor, ahk_exe Xshell.exe  ;Xshell 5
 GroupAdd, Editor, ahk_exe hh.exe  ;chm
 GroupAdd, Editor, ahk_exe Listary.exe  ;Listary
 GroupAdd, Editor, ahk_exe Wox.exe  ;Wox
 GroupAdd, Editor, ahk_class TXGuiFoundation  ;QQ和TIM
-GroupAdd, Editor, ahk_exe WeChat.exe  ;微信
 GroupAdd, Editor, ahk_exe Foxmail.exe  ;Foxmail
 
 GroupAdd, ModernEditor, ahk_class PX_WINDOW_CLASS  ;Sublime Text
@@ -49,10 +49,16 @@ GroupAdd, Browser, ahk_exe 360chrome.exe  ;360极速浏览器
 
 ;可使用Alt+q关闭窗口的软件分组（AltQAvailableSoftware）
 GroupAdd, AQAS, ahk_class TXGuiFoundation  ;TIM和QQ
-GroupAdd, AQAS, ahk_exe WeChat.exe  ;微信
+GroupAdd, AQAS, ahk_group WeixinEditor
 GroupAdd, AQAS, ahk_class Photo_Lightweight_Viewer  ;Windows 照片查看器
 GroupAdd, AQAS, ahk_exe Foxmail.exe  ;Foxmail
 GroupAdd, AQAS, ahk_exe Wiz.exe  ;为知笔记
+
+;可自动匹配标点的软件分组（AutomaticallyMatchablePunctuationsSoftware）
+GroupAdd, AMPS, ahk_group Browser
+GroupAdd, AMPS, ahk_group WeixinEditor
+GroupAdd, AMPS, ahk_exe Wiz.exe  ;为知笔记
+GroupAdd, AMPS, ahk_class TXGuiFoundation  ;QQ和TIM
 
 ;终端分组
 GroupAdd, Terminal, ahk_exe SecureCRT.exe  ;SecureCRT
@@ -185,32 +191,32 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WeixinEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group WeixinEditor
 ^d::
-sendbyclip("好的")
+Send, 好的
 Send {Enter}
 Return
 
 ^s::
-sendbyclip("收到")
+Send, 收到
 Send {Enter}
 Return
 
 ^h::
-sendbyclip("好")
+Send, 好
 Send {Enter}
 Return
 
 ^e::
-sendbyclip("嗯")
+Send, 嗯
 Send {Enter}
 Return
 
 ^o::
-sendbyclip("哦")
+Send, 哦
 Send {Enter}
 Return
 
 ^m::
-sendbyclip("验证码")
+Send, 验证码
 Send {Enter}
 Return
 
@@ -260,6 +266,40 @@ return
 !q::!F4
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AQAS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AMPS>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive,ahk_group AMPS
+; 自动匹配中英文双引号
+:*b0:"::
+Send, "
+Send, {Left}
+Return
+
+; 自动匹配中英文单引号
+:*b0:'::'{left 1}
+Return
+
+; 自动匹配中英文括号
+:*b0:(::){left 1}
+state := IME_GET()
+If (state="0") ;此时为英文
+{
+  Send {Shift}
+}
+Return
+
+; 自动匹配中英文中括号
+:*b0:[::]{left 1}
+state := IME_GET()
+If (state="0") ;此时为英文
+{
+  Send {Shift}
+}
+Return
+
+; 自动匹配中英文书名号
+:*b0:<::>{left 1}
+Return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<AMPS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Terminal>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group Terminal
 ^PgUp::
