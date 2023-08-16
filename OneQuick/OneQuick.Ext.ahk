@@ -147,6 +147,7 @@ Send ^c
 Sleep 250
 Send ^!x
 Sleep 1000
+Send ^a
 Send ^v
 Sleep 250
 Send {Enter}
@@ -503,6 +504,12 @@ SetKeyDelay, 10, 10
 ControlSend, ahk_parent, ^+2, ahk_class PX_WINDOW_CLASS
 return
 
+; 自动换行
+^!w::
+SetKeyDelay, 10, 10
+ControlSend, ahk_parent, ^!w, ahk_class PX_WINDOW_CLASS
+return
+
 ; 打开Key Bindings并最大化
 #k::
 Send !nk
@@ -536,6 +543,7 @@ Return
 ;复制整行（不含换行符）
 !c::
 Send {Home 2}
+Sleep 250
 Send +{End 2}
 Send ^c
 return
@@ -1092,6 +1100,14 @@ If (state="0") ;此时为英文
 return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<企业微信>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe WXWork.exe
+^+s::
+sendbyclip("/ok")
+Send {Enter}
+Return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<企业微信结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Foxmail>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe Foxmail.exe
 ; 增大字体
@@ -1275,8 +1291,10 @@ return
 ^+c::
 Sleep 500
 Send {F2}
+Sleep 250
 Send ^a
 Send ^c
+Send {Esc}
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS文字>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
