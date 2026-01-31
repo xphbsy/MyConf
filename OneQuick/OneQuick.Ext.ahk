@@ -1,9 +1,9 @@
 ﻿
-class User_LENOVO_PC
+class User_LAPTOP_K4R2R1O4
 {
 	Ini()
 	{
-    OneQuick.Editor := "D:\Program Files\Sublime Text 3\sublime_text.exe"
+    OneQuick.Editor := "D:\Program Files\Sublime Text\sublime_text.exe"
 	}
 }
 
@@ -103,14 +103,19 @@ Return
 ; 显示Listary
 LAlt & LWin::
 ; Send #;
-Send #n
+Send !n
+Return
+
+; 显示Listary
+#n::
+Send !n
 Return
 
 ; 用Listary在百度百科搜索指定词条
 #^;::
 #j::
 ; Send #;
-Send #n
+Send !n
 Sleep 100
 sendbyclip("b")
 Send, {Space}
@@ -123,7 +128,7 @@ Sleep 100
 ; Send {Ctrl down}{Ctrl up}
 ; Sleep 100
 ; Send {Ctrl down}{Ctrl up}
-Send #n
+Send !n
 Sleep 1000
 Send ^v
 return
@@ -143,6 +148,7 @@ Return
 
 ; 在有道词典或金山词霸mini窗口查询选中单词
 <!x::
+!x::
 Send ^c
 Sleep 250
 Send ^!x
@@ -158,16 +164,16 @@ return
 ; Return
 
 ; 全选并复制
-#c::
-Send, ^a
-Send, ^c
-return
+; #c::
+; Send, ^a
+; Send, ^c
+; return
 
 RControl & \::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
 ; LControl & Esc::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
 LWin & LAlt::AltTab  ; Hold down right-control then press \ repeatedly to move forward.
 ; RControl & Enter::ShiftAltTab  ; Without even having to release right-control, press Enter to reverse direction.
-LAlt & `::ShiftAltTab
+; LAlt & `::ShiftAltTab
 RAlt & `::ShiftAltTab
 LWin & LControl::ShiftAltTab
 RControl & BackSpace::ShiftAltTab  ; Hold down right-control then press \ repeatedly to move forward.
@@ -198,9 +204,9 @@ Return
 ; Return
 
 ; 打开搜狗截图
-#^j::
-Send {Ctrl down}{Alt Down}w{Alt Up}{Ctrl up}
-return
+; #^j::
+; Send {Ctrl down}{Alt Down}w{Alt Up}{Ctrl up}
+; return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;实用功能(结束);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;快速命令;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -208,12 +214,12 @@ return
 自己加的
 */
 #!j::run D:\老毛桃U盘\文档\J2SE6.0_CN.chm
-#!b::run C:\Users\鹏\AppData\Roaming\baidu\BaiduYunGuanjia\baidunetdisk.exe ;启动百度网盘
-#!c::run *RunAs D:\Program Files\Microsoft VS Code\Code.exe ;启动Visual Studio Code
-RAlt & Home::run D:\软件\AutoHotkey\脚本\SublimeBrightness.ahk ;启动自动亮度调节
-#^a::
-run C:\Program Files\AutoHotkey\AutoHotkey.chm
-run D:\书\AutoHotkey.chm
+; #!b::run C:\Users\鹏\AppData\Roaming\baidu\BaiduYunGuanjia\baidunetdisk.exe ;启动百度网盘
+; #!c::run *RunAs D:\Program Files\Microsoft VS Code\Code.exe ;启动Visual Studio Code
+; RAlt & Home::run D:\软件\AutoHotkey\脚本\SublimeBrightness.ahk ;启动自动亮度调节
+; #^a::
+; run C:\Program Files\AutoHotkey\AutoHotkey.chm
+; run D:\书\AutoHotkey.chm
 Return
 
 #F10::Run http://www.baidu.com
@@ -226,10 +232,10 @@ Return
 ; return
 
 ;选择一行
-!a::
-Send {Home}
-Send +{End}
-return
+; !a::
+; Send {Home}
+; Send +{End}
+; return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;通用键的映射结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;应用程序各自的映射;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360se6>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -397,10 +403,10 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<360极速浏览器结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<谷歌浏览器>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive ahk_exe chrome.exe
-^!l::
-Send ^{PgDn}
-Send ^w
-return
+; ^!l::
+; Send ^{PgDn}
+; Send ^w
+; return
 
 ^!h::
 Send ^{PgUp}
@@ -408,9 +414,9 @@ Send ^w
 Send ^{PgDn}
 return
 
-^[::
-Send {Esc}
-return
+; ^[::
+; Send {Esc}
+; return
 
 $!q::Send !q    ;覆盖通用映射，使用自己的
 return
@@ -447,7 +453,7 @@ Sleep 1250
 ; Send {Ctrl down}{Ctrl up}
 ; Sleep 100
 ; Send {Ctrl down}{Ctrl up}
-Send #n
+Send !n
 Sleep 750
 Send ^v
 return
@@ -456,7 +462,7 @@ return
 ^o::
 Send ^o
 Sleep 1500
-Send #n
+Send !n
 return
 
 ; 跳到指定字符左边
@@ -525,10 +531,10 @@ Send #{up}
 return
 
 ; 新建窗口并最大化
-~^+n::
-Sleep 500
-Send #{up}
-return
+; ~^+n::
+; Sleep 500
+; Send #{up}
+; return
 
 ![::
 sendbyclip("【自注：】")
@@ -637,7 +643,7 @@ Send ^c
 Sleep 100
 Send ^o
 Sleep 500
-Send #n
+Send !n
 Sleep 100
 Send ^v
 return
@@ -646,7 +652,7 @@ return
 ^o::
 Send ^o
 Sleep 500
-Send #n
+Send !n
 return
 
 ^Space::
@@ -704,7 +710,7 @@ Sleep 100
 ; Send {Ctrl down}{Ctrl up}
 ; Sleep 100
 ; Send {Ctrl down}{Ctrl up}
-Send #n
+Send !n
 Sleep 100
 Send ^v
 return
@@ -1132,6 +1138,7 @@ return
 !w::
 !Space::
 <!x::
+!x::
 Send {Esc}
 return
 
@@ -1169,6 +1176,7 @@ return
 ^w::
 !Space::
 <!x::
+!x::
 Send ^!x
 return
 
@@ -1291,9 +1299,10 @@ return
 ^+c::
 Sleep 500
 Send {F2}
-Sleep 250
+Sleep 500
 Send ^a
 Send ^c
+Sleep 250
 Send {Esc}
 return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<WPS结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1336,3 +1345,4 @@ Send {Down 4}
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<PotPlayer结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;应用程序各自的映射结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
