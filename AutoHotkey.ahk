@@ -39,7 +39,7 @@ GroupAdd, JetBrainsEditor, ahk_exe idea64.exe  ;IntelliJ IDEA
 GroupAdd, JetBrainsEditor, ahk_exe pycharm64.exe  ;PyCharm
 
 ; 微信和企业微信分组
-GroupAdd, WeixinEditor, ahk_exe WeChat.exe  ;微信
+GroupAdd, WeixinEditor, ahk_exe Weixin.exe  ;微信
 GroupAdd, WeixinEditor, ahk_exe WXWork.exe  ;企业微信
 
 ;浏览器分组
@@ -111,7 +111,7 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Editor结束>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<ModernEditor>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group ModernEditor
-!z::Send ^z
+; !z::Send ^z
 $!w::Send !w    ;覆盖通用映射，使用自己的，$用于发送键自己
 $!q::Send !q
 ^!j::Send ^{down}
@@ -174,10 +174,18 @@ return
 $!q::Send !q    ;覆盖通用映射，使用自己的
 !w::Send ^{F4}
 
-^Space::
-SetKeyDelay, 10, 10
-ControlSend, , ^{Space}, ahk_group JetBrainsEditor
-return
+; ^Space::
+; SetKeyDelay, 10, 10
+; ControlSend, , ^{Space}, ahk_group JetBrainsEditor
+; return
+
+; !a::
+; SetKeyDelay, 10, 10
+; ControlSend, , !a, ahk_group JetBrainsEditor
+; return
+
+; $!a::Send !a    ;覆盖通用映射，使用自己的
+; return
 
 ;复制整行（不含换行符）
 !c::
@@ -230,13 +238,13 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<Browser>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive,ahk_group Browser
 
-^h::
-Send ^{PgUp}
-return
+; ^h::
+; Send ^{PgUp}
+; return
 
-^l::
-Send ^{PgDn}
-return
+; ^l::
+; Send ^{PgDn}
+; return
 
 !j::Send {down}
 !k::Send {up}
@@ -246,8 +254,8 @@ return
 
 ; 查找选中内容
 ^;::
-^q::
-^s::
+; ^q::
+; ^s::
 ^!f::
 Send ^c
 Send ^f
